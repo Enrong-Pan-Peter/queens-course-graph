@@ -1,0 +1,2022 @@
+{
+  "nodes": [
+    {
+      "id": "MATH110",
+      "label": "MATH 110: Linear Algebra",
+      "fullName": "Linear Algebra",
+      "code": "MATH 110",
+      "subject": "MATH",
+      "units": 6.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 11
+    },
+    {
+      "id": "MATH112",
+      "label": "MATH 112: Introduction to Linear Algebra",
+      "fullName": "Introduction to Linear Algebra",
+      "code": "MATH 112",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 1
+    },
+    {
+      "id": "MATH120",
+      "label": "MATH 120: Differential and Integral Calc",
+      "fullName": "Differential and Integral Calculus",
+      "code": "MATH 120",
+      "subject": "MATH",
+      "units": 6.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 14
+    },
+    {
+      "id": "MATH121",
+      "label": "MATH 121: Calculus and Differential Equa",
+      "fullName": "Calculus and Differential Equations",
+      "code": "MATH 121",
+      "subject": "MATH",
+      "units": 6.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH123",
+      "label": "MATH 123: Calculus I",
+      "fullName": "Calculus I",
+      "code": "MATH 123",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH124",
+      "label": "MATH 124: Calculus II",
+      "fullName": "Calculus II",
+      "code": "MATH 124",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH126",
+      "label": "MATH 126: Introductory Calculus",
+      "fullName": "Introductory Calculus",
+      "code": "MATH 126",
+      "subject": "MATH",
+      "units": 6.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH127",
+      "label": "MATH 127: Calculus I for Life Sciences",
+      "fullName": "Calculus I for Life Sciences",
+      "code": "MATH 127",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 1
+    },
+    {
+      "id": "MATH128",
+      "label": "MATH 128: Calculus II for Life Sciences",
+      "fullName": "Calculus II for Life Sciences",
+      "code": "MATH 128",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [
+        "MATH 127"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH130",
+      "label": "MATH 130: Calculus for Social Sciences",
+      "fullName": "Calculus for Social Sciences",
+      "code": "MATH 130",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH210",
+      "label": "MATH 210: Rings and Fields",
+      "fullName": "Rings and Fields",
+      "code": "MATH 210",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 110"
+      ],
+      "followupCount": 6
+    },
+    {
+      "id": "MATH212",
+      "label": "MATH 212: Linear Algebra II",
+      "fullName": "Linear Algebra II",
+      "code": "MATH 212",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 112"
+      ],
+      "followupCount": 1
+    },
+    {
+      "id": "MATH221",
+      "label": "MATH 221: Vector Calculus",
+      "fullName": "Vector Calculus",
+      "code": "MATH 221",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 120"
+      ],
+      "followupCount": 2
+    },
+    {
+      "id": "MATH225",
+      "label": "MATH 225: Ordinary Differential Equation",
+      "fullName": "Ordinary Differential Equations",
+      "code": "MATH 225",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 120"
+      ],
+      "followupCount": 8
+    },
+    {
+      "id": "MATH231",
+      "label": "MATH 231: Differential Equations",
+      "fullName": "Differential Equations",
+      "code": "MATH 231",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 120",
+        "MATH 110"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH280",
+      "label": "MATH 280: Advanced Calculus I",
+      "fullName": "Advanced Calculus I",
+      "code": "MATH 280",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 120"
+      ],
+      "followupCount": 5
+    },
+    {
+      "id": "MATH281",
+      "label": "MATH 281: Advanced Calculus II",
+      "fullName": "Advanced Calculus II",
+      "code": "MATH 281",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 280"
+      ],
+      "followupCount": 6
+    },
+    {
+      "id": "MATH300",
+      "label": "MATH 300: Mathematical Biology",
+      "fullName": "Mathematical Biology",
+      "code": "MATH 300",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 120",
+        "MATH 110"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH310",
+      "label": "MATH 310: Group Theory",
+      "fullName": "Group Theory",
+      "code": "MATH 310",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 210"
+      ],
+      "followupCount": 1
+    },
+    {
+      "id": "MATH311",
+      "label": "MATH 311: Number Theory",
+      "fullName": "Number Theory",
+      "code": "MATH 311",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 210"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH326",
+      "label": "MATH 326: Complex Analysis",
+      "fullName": "Complex Analysis",
+      "code": "MATH 326",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 110",
+        "MATH 120"
+      ],
+      "followupCount": 1
+    },
+    {
+      "id": "MATH328",
+      "label": "MATH 328: Real Analysis",
+      "fullName": "Real Analysis",
+      "code": "MATH 328",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 281"
+      ],
+      "followupCount": 1
+    },
+    {
+      "id": "MATH329",
+      "label": "MATH 329: Dynamical Systems",
+      "fullName": "Dynamical Systems",
+      "code": "MATH 329",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 225"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH334",
+      "label": "MATH 334: Fourier Analysis",
+      "fullName": "Fourier Analysis",
+      "code": "MATH 334",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 225"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH335",
+      "label": "MATH 335: Optimization",
+      "fullName": "Optimization",
+      "code": "MATH 335",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 120",
+        "MATH 110"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH337",
+      "label": "MATH 337: Game Theory",
+      "fullName": "Game Theory",
+      "code": "MATH 337",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 120",
+        "MATH 110"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH370",
+      "label": "MATH 370: Topology",
+      "fullName": "Topology",
+      "code": "MATH 370",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 280",
+        "MATH 281"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH376",
+      "label": "MATH 376: Geometry",
+      "fullName": "Geometry",
+      "code": "MATH 376",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 110",
+        "MATH 120"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH382",
+      "label": "MATH 382: Interest Theory",
+      "fullName": "Interest Theory",
+      "code": "MATH 382",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 120"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH384",
+      "label": "MATH 384: Life Contingencies",
+      "fullName": "Life Contingencies",
+      "code": "MATH 384",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 120",
+        "STAT 268"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH401",
+      "label": "MATH 401: Graph Theory",
+      "fullName": "Graph Theory",
+      "code": "MATH 401",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 210"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH402",
+      "label": "MATH 402: Combinatorics",
+      "fullName": "Combinatorics",
+      "code": "MATH 402",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 210"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH406",
+      "label": "MATH 406: Coding Theory",
+      "fullName": "Coding Theory",
+      "code": "MATH 406",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 210"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH418",
+      "label": "MATH 418: Algebraic Geometry",
+      "fullName": "Algebraic Geometry",
+      "code": "MATH 418",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 310"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH419",
+      "label": "MATH 419: Cryptography",
+      "fullName": "Cryptography",
+      "code": "MATH 419",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 210"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH427",
+      "label": "MATH 427: Nonlinear Dynamics",
+      "fullName": "Nonlinear Dynamics",
+      "code": "MATH 427",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 225",
+        "MATH 328"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH430",
+      "label": "MATH 430: Functional Analysis",
+      "fullName": "Functional Analysis",
+      "code": "MATH 430",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 110",
+        "MATH 281"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH433",
+      "label": "MATH 433: Control Theory",
+      "fullName": "Control Theory",
+      "code": "MATH 433",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 212",
+        "MATH 225",
+        "MATH 326"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH434",
+      "label": "MATH 434: Continuum Mechanics",
+      "fullName": "Continuum Mechanics",
+      "code": "MATH 434",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 225",
+        "MATH 280"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH436",
+      "label": "MATH 436: Optimization Theory",
+      "fullName": "Optimization Theory",
+      "code": "MATH 436",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 225",
+        "MATH 280"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH447",
+      "label": "MATH 447: Partial Differential Equations",
+      "fullName": "Partial Differential Equations",
+      "code": "MATH 447",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 225",
+        "MATH 280"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH448",
+      "label": "MATH 448: Geometric Mechanics",
+      "fullName": "Geometric Mechanics",
+      "code": "MATH 448",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 225",
+        "MATH 281"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH455",
+      "label": "MATH 455: Stochastic Processes",
+      "fullName": "Stochastic Processes",
+      "code": "MATH 455",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 353"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH456",
+      "label": "MATH 456: Stochastic Control",
+      "fullName": "Stochastic Control",
+      "code": "MATH 456",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 353"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH474",
+      "label": "MATH 474: Information Theory",
+      "fullName": "Information Theory",
+      "code": "MATH 474",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 353"
+      ],
+      "followupCount": 1
+    },
+    {
+      "id": "MATH477",
+      "label": "MATH 477: Data Compression",
+      "fullName": "Data Compression",
+      "code": "MATH 477",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 474"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH487",
+      "label": "MATH 487: Stochastic Calculus",
+      "fullName": "Stochastic Calculus",
+      "code": "MATH 487",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 110",
+        "MATH 281",
+        "STAT 268"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "MATH499",
+      "label": "MATH 499: Special Topics",
+      "fullName": "Special Topics",
+      "code": "MATH 499",
+      "subject": "MATH",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT161",
+      "label": "STAT 161: Introduction to Data Science",
+      "fullName": "Introduction to Data Science",
+      "code": "STAT 161",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT252",
+      "label": "STAT 252: Probability",
+      "fullName": "Probability",
+      "code": "STAT 252",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 120"
+      ],
+      "followupCount": 4
+    },
+    {
+      "id": "STAT263",
+      "label": "STAT 263: Introduction to Statistics",
+      "fullName": "Introduction to Statistics",
+      "code": "STAT 263",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT268",
+      "label": "STAT 268: Probability and Statistics",
+      "fullName": "Probability and Statistics",
+      "code": "STAT 268",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 120",
+        "MATH 221"
+      ],
+      "followupCount": 2
+    },
+    {
+      "id": "STAT269",
+      "label": "STAT 269: Statistics",
+      "fullName": "Statistics",
+      "code": "STAT 269",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "MATH 120"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT353",
+      "label": "STAT 353: Probability II",
+      "fullName": "Probability II",
+      "code": "STAT 353",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 221",
+        "STAT 252"
+      ],
+      "followupCount": 4
+    },
+    {
+      "id": "STAT361",
+      "label": "STAT 361: Linear Regression",
+      "fullName": "Linear Regression",
+      "code": "STAT 361",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "MATH 110",
+        "STAT 252"
+      ],
+      "followupCount": 5
+    },
+    {
+      "id": "STAT362",
+      "label": "STAT 362: Computational Statistics",
+      "fullName": "Computational Statistics",
+      "code": "STAT 362",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "STAT 252"
+      ],
+      "followupCount": 1
+    },
+    {
+      "id": "STAT455",
+      "label": "STAT 455: Stochastic Processes",
+      "fullName": "Stochastic Processes",
+      "code": "STAT 455",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 353"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT456",
+      "label": "STAT 456: Bayesian Statistics",
+      "fullName": "Bayesian Statistics",
+      "code": "STAT 456",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 463"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT462",
+      "label": "STAT 462: Monte Carlo Methods",
+      "fullName": "Monte Carlo Methods",
+      "code": "STAT 462",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 362",
+        "STAT 361"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT463",
+      "label": "STAT 463: Statistical Inference",
+      "fullName": "Statistical Inference",
+      "code": "STAT 463",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "MATH 110",
+        "STAT 252",
+        "MATH 281"
+      ],
+      "followupCount": 4
+    },
+    {
+      "id": "STAT464",
+      "label": "STAT 464: Time Series Analysis",
+      "fullName": "Time Series Analysis",
+      "code": "STAT 464",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 361"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT471",
+      "label": "STAT 471: Design of Experiments",
+      "fullName": "Design of Experiments",
+      "code": "STAT 471",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 361",
+        "STAT 463"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT473",
+      "label": "STAT 473: Generalized Linear Models",
+      "fullName": "Generalized Linear Models",
+      "code": "STAT 473",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 361",
+        "STAT 463"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "STAT486",
+      "label": "STAT 486: Survival Analysis",
+      "fullName": "Survival Analysis",
+      "code": "STAT 486",
+      "subject": "STAT",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "STAT 361",
+        "STAT 463"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC101",
+      "label": "CISC 101: Introduction to Computer Progr",
+      "fullName": "Introduction to Computer Programming",
+      "code": "CISC 101",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 2
+    },
+    {
+      "id": "CISC102",
+      "label": "CISC 102: Discrete Mathematics for Compu",
+      "fullName": "Discrete Mathematics for Computing",
+      "code": "CISC 102",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 1
+    },
+    {
+      "id": "CISC110",
+      "label": "CISC 110: Creative Computing",
+      "fullName": "Creative Computing",
+      "code": "CISC 110",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC121",
+      "label": "CISC 121: Introduction to Computing Scie",
+      "fullName": "Introduction to Computing Science I",
+      "code": "CISC 121",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [],
+      "followupCount": 2
+    },
+    {
+      "id": "CISC124",
+      "label": "CISC 124: Introduction to Computing Scie",
+      "fullName": "Introduction to Computing Science II",
+      "code": "CISC 124",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [
+        "CISC 121"
+      ],
+      "followupCount": 8
+    },
+    {
+      "id": "CISC171",
+      "label": "CISC 171: Computational Probability and ",
+      "fullName": "Computational Probability and Statistics",
+      "code": "CISC 171",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 100,
+      "prerequisites": [
+        "CISC 101"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC204",
+      "label": "CISC 204: Logic for Computing Science",
+      "fullName": "Logic for Computing Science",
+      "code": "CISC 204",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "CISC 102",
+        "CISC 121"
+      ],
+      "followupCount": 1
+    },
+    {
+      "id": "CISC221",
+      "label": "CISC 221: Computer Architecture",
+      "fullName": "Computer Architecture",
+      "code": "CISC 221",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "CISC 124"
+      ],
+      "followupCount": 2
+    },
+    {
+      "id": "CISC223",
+      "label": "CISC 223: Software Specifications",
+      "fullName": "Software Specifications",
+      "code": "CISC 223",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "CISC 124"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC235",
+      "label": "CISC 235: Data Structures",
+      "fullName": "Data Structures",
+      "code": "CISC 235",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "CISC 124"
+      ],
+      "followupCount": 10
+    },
+    {
+      "id": "CISC251",
+      "label": "CISC 251: Web Technologies",
+      "fullName": "Web Technologies",
+      "code": "CISC 251",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "CISC 124"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC271",
+      "label": "CISC 271: Linear Methods for AI",
+      "fullName": "Linear Methods for AI",
+      "code": "CISC 271",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "CISC 101"
+      ],
+      "followupCount": 2
+    },
+    {
+      "id": "CISC282",
+      "label": "CISC 282: Formal Methods in Software Eng",
+      "fullName": "Formal Methods in Software Engineering",
+      "code": "CISC 282",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 200,
+      "prerequisites": [
+        "CISC 124",
+        "CISC 235"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC320",
+      "label": "CISC 320: Fundamentals of Software Devel",
+      "fullName": "Fundamentals of Software Development",
+      "code": "CISC 320",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 235"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC322",
+      "label": "CISC 322: Software Architecture",
+      "fullName": "Software Architecture",
+      "code": "CISC 322",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 124",
+        "CISC 235"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC324",
+      "label": "CISC 324: Operating Systems",
+      "fullName": "Operating Systems",
+      "code": "CISC 324",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 221",
+        "CISC 235"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC325",
+      "label": "CISC 325: Human-Computer Interaction",
+      "fullName": "Human-Computer Interaction",
+      "code": "CISC 325",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 124",
+        "CISC 235"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC327",
+      "label": "CISC 327: Software Quality Assurance",
+      "fullName": "Software Quality Assurance",
+      "code": "CISC 327",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 221",
+        "CISC 235"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC330",
+      "label": "CISC 330: Computer-Integrated Surgery",
+      "fullName": "Computer-Integrated Surgery",
+      "code": "CISC 330",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 124"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC332",
+      "label": "CISC 332: Database Management Systems",
+      "fullName": "Database Management Systems",
+      "code": "CISC 332",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 235"
+      ],
+      "followupCount": 1
+    },
+    {
+      "id": "CISC352",
+      "label": "CISC 352: Artificial Intelligence",
+      "fullName": "Artificial Intelligence",
+      "code": "CISC 352",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 235"
+      ],
+      "followupCount": 2
+    },
+    {
+      "id": "CISC365",
+      "label": "CISC 365: Algorithms I",
+      "fullName": "Algorithms I",
+      "code": "CISC 365",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 235"
+      ],
+      "followupCount": 2
+    },
+    {
+      "id": "CISC371",
+      "label": "CISC 371: Machine Learning",
+      "fullName": "Machine Learning",
+      "code": "CISC 371",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 271"
+      ],
+      "followupCount": 1
+    },
+    {
+      "id": "CISC372",
+      "label": "CISC 372: Advanced Data Analytics",
+      "fullName": "Advanced Data Analytics",
+      "code": "CISC 372",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 300,
+      "prerequisites": [
+        "CISC 271"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC422",
+      "label": "CISC 422: Formal Methods in Software Eng",
+      "fullName": "Formal Methods in Software Engineering",
+      "code": "CISC 422",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "CISC 204",
+        "CISC 235"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC432",
+      "label": "CISC 432: Advanced Database Systems",
+      "fullName": "Advanced Database Systems",
+      "code": "CISC 432",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "CISC 332"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC452",
+      "label": "CISC 452: Neural and Genetic Computing",
+      "fullName": "Neural and Genetic Computing",
+      "code": "CISC 452",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "CISC 352"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC453",
+      "label": "CISC 453: Topics in Artificial Intellige",
+      "fullName": "Topics in Artificial Intelligence",
+      "code": "CISC 453",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "CISC 352"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC465",
+      "label": "CISC 465: Algorithms II",
+      "fullName": "Algorithms II",
+      "code": "CISC 465",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "CISC 365"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC467",
+      "label": "CISC 467: Computational Complexity",
+      "fullName": "Computational Complexity",
+      "code": "CISC 467",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "CISC 365"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC473",
+      "label": "CISC 473: Deep Learning",
+      "fullName": "Deep Learning",
+      "code": "CISC 473",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [
+        "CISC 371"
+      ],
+      "followupCount": 0
+    },
+    {
+      "id": "CISC499",
+      "label": "CISC 499: Undergraduate Project",
+      "fullName": "Undergraduate Project",
+      "code": "CISC 499",
+      "subject": "CISC",
+      "units": 3.0,
+      "level": 400,
+      "prerequisites": [],
+      "followupCount": 0
+    }
+  ],
+  "edges": [
+    {
+      "source": "MATH127",
+      "target": "MATH128",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "MATH210",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH112",
+      "target": "MATH212",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH221",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH225",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH231",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "MATH231",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH280",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH280",
+      "target": "MATH281",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH300",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "MATH300",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH210",
+      "target": "MATH310",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH210",
+      "target": "MATH311",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "MATH326",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH326",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH281",
+      "target": "MATH328",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH225",
+      "target": "MATH329",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH225",
+      "target": "MATH334",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH335",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "MATH335",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH337",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "MATH337",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH280",
+      "target": "MATH370",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH281",
+      "target": "MATH370",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "MATH376",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH376",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH382",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "MATH384",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT268",
+      "target": "MATH384",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH210",
+      "target": "MATH401",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH210",
+      "target": "MATH402",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH210",
+      "target": "MATH406",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH310",
+      "target": "MATH418",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH210",
+      "target": "MATH419",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH225",
+      "target": "MATH427",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH328",
+      "target": "MATH427",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "MATH430",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH281",
+      "target": "MATH430",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH212",
+      "target": "MATH433",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH225",
+      "target": "MATH433",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH326",
+      "target": "MATH433",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH225",
+      "target": "MATH434",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH280",
+      "target": "MATH434",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH225",
+      "target": "MATH436",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH280",
+      "target": "MATH436",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH225",
+      "target": "MATH447",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH280",
+      "target": "MATH447",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH225",
+      "target": "MATH448",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH281",
+      "target": "MATH448",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT353",
+      "target": "MATH455",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT353",
+      "target": "MATH456",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT353",
+      "target": "MATH474",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH474",
+      "target": "MATH477",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "MATH487",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH281",
+      "target": "MATH487",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT268",
+      "target": "MATH487",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "STAT252",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "STAT268",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH221",
+      "target": "STAT268",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH120",
+      "target": "STAT269",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH221",
+      "target": "STAT353",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT252",
+      "target": "STAT353",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "STAT361",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT252",
+      "target": "STAT361",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT252",
+      "target": "STAT362",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT353",
+      "target": "STAT455",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT463",
+      "target": "STAT456",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT362",
+      "target": "STAT462",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT361",
+      "target": "STAT462",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH110",
+      "target": "STAT463",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT252",
+      "target": "STAT463",
+      "type": "prerequisite"
+    },
+    {
+      "source": "MATH281",
+      "target": "STAT463",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT361",
+      "target": "STAT464",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT361",
+      "target": "STAT471",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT463",
+      "target": "STAT471",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT361",
+      "target": "STAT473",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT463",
+      "target": "STAT473",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT361",
+      "target": "STAT486",
+      "type": "prerequisite"
+    },
+    {
+      "source": "STAT463",
+      "target": "STAT486",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC121",
+      "target": "CISC124",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC101",
+      "target": "CISC171",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC102",
+      "target": "CISC204",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC121",
+      "target": "CISC204",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC124",
+      "target": "CISC221",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC124",
+      "target": "CISC223",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC124",
+      "target": "CISC235",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC124",
+      "target": "CISC251",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC101",
+      "target": "CISC271",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC124",
+      "target": "CISC282",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC282",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC320",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC124",
+      "target": "CISC322",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC322",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC221",
+      "target": "CISC324",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC324",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC124",
+      "target": "CISC325",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC325",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC221",
+      "target": "CISC327",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC327",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC124",
+      "target": "CISC330",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC332",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC352",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC365",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC271",
+      "target": "CISC371",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC271",
+      "target": "CISC372",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC204",
+      "target": "CISC422",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC235",
+      "target": "CISC422",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC332",
+      "target": "CISC432",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC352",
+      "target": "CISC452",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC352",
+      "target": "CISC453",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC365",
+      "target": "CISC465",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC365",
+      "target": "CISC467",
+      "type": "prerequisite"
+    },
+    {
+      "source": "CISC371",
+      "target": "CISC473",
+      "type": "prerequisite"
+    }
+  ],
+  "components": {
+    "main": [
+      "MATH110",
+      "MATH487",
+      "STAT463",
+      "MATH210",
+      "MATH337",
+      "MATH430",
+      "MATH326",
+      "MATH231",
+      "STAT361",
+      "MATH300",
+      "MATH335",
+      "MATH376",
+      "MATH281",
+      "STAT268",
+      "STAT471",
+      "STAT456",
+      "STAT252",
+      "STAT473",
+      "STAT486",
+      "MATH311",
+      "MATH401",
+      "MATH406",
+      "MATH402",
+      "MATH419",
+      "MATH310",
+      "MATH120",
+      "MATH433",
+      "STAT462",
+      "STAT464",
+      "MATH370",
+      "MATH280",
+      "MATH448",
+      "MATH328",
+      "MATH384",
+      "MATH221",
+      "STAT362",
+      "STAT353",
+      "MATH418",
+      "STAT269",
+      "MATH225",
+      "MATH382",
+      "MATH212",
+      "MATH434",
+      "MATH436",
+      "MATH447",
+      "MATH427",
+      "MATH456",
+      "MATH455",
+      "STAT455",
+      "MATH474",
+      "MATH334",
+      "MATH329",
+      "MATH112",
+      "MATH477"
+    ],
+    "isolated": [
+      "MATH121",
+      "MATH123",
+      "MATH124",
+      "MATH126",
+      "MATH130",
+      "MATH499",
+      "STAT161",
+      "STAT263",
+      "CISC110",
+      "CISC499"
+    ],
+    "all": [
+      [
+        "MATH110",
+        "MATH487",
+        "STAT463",
+        "MATH210",
+        "MATH337",
+        "MATH430",
+        "MATH326",
+        "MATH231",
+        "STAT361",
+        "MATH300",
+        "MATH335",
+        "MATH376",
+        "MATH281",
+        "STAT268",
+        "STAT471",
+        "STAT456",
+        "STAT252",
+        "STAT473",
+        "STAT486",
+        "MATH311",
+        "MATH401",
+        "MATH406",
+        "MATH402",
+        "MATH419",
+        "MATH310",
+        "MATH120",
+        "MATH433",
+        "STAT462",
+        "STAT464",
+        "MATH370",
+        "MATH280",
+        "MATH448",
+        "MATH328",
+        "MATH384",
+        "MATH221",
+        "STAT362",
+        "STAT353",
+        "MATH418",
+        "STAT269",
+        "MATH225",
+        "MATH382",
+        "MATH212",
+        "MATH434",
+        "MATH436",
+        "MATH447",
+        "MATH427",
+        "MATH456",
+        "MATH455",
+        "STAT455",
+        "MATH474",
+        "MATH334",
+        "MATH329",
+        "MATH112",
+        "MATH477"
+      ],
+      [
+        "CISC102",
+        "CISC204",
+        "CISC121",
+        "CISC422",
+        "CISC124",
+        "CISC235",
+        "CISC325",
+        "CISC251",
+        "CISC221",
+        "CISC282",
+        "CISC330",
+        "CISC322",
+        "CISC223",
+        "CISC332",
+        "CISC365",
+        "CISC352",
+        "CISC327",
+        "CISC320",
+        "CISC324",
+        "CISC432",
+        "CISC467",
+        "CISC465",
+        "CISC453",
+        "CISC452"
+      ],
+      [
+        "CISC101",
+        "CISC171",
+        "CISC271",
+        "CISC371",
+        "CISC372",
+        "CISC473"
+      ],
+      [
+        "MATH127",
+        "MATH128"
+      ],
+      [
+        "MATH121"
+      ],
+      [
+        "MATH123"
+      ],
+      [
+        "MATH124"
+      ],
+      [
+        "MATH126"
+      ],
+      [
+        "MATH130"
+      ],
+      [
+        "MATH499"
+      ],
+      [
+        "STAT161"
+      ],
+      [
+        "STAT263"
+      ],
+      [
+        "CISC110"
+      ],
+      [
+        "CISC499"
+      ]
+    ]
+  },
+  "statistics": {
+    "total_nodes": 96,
+    "total_edges": 113,
+    "component_count": 14,
+    "largest_component_size": 54,
+    "isolated_count": 10
+  }
+}

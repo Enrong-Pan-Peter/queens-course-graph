@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen's University Course Prerequisites Graph</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Roboto', 'Arial', sans-serif;
+            background-color: #F5F5F3;
+            color: #333;
+            overflow: hidden;
+        }
+
+        #header {
+            background-color: #FAFAF8;
+            padding: 15px 20px;
+            border-bottom: 1px solid #E0E0DD;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-right: 20px;
+        }
+
+        #searchBox {
+            padding: 8px 12px;
+            border: 1px solid #D0D0CC;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 250px;
+            background-color: white;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid #D0D0CC;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            background-color: #F0F0EE;
+        }
+
+        .filter-btn.active {
+            background-color: #D4A574;
+            color: white;
+            border-color: #C89B7B;
+        }
+
+        .filter-btn.active.stat {
+            background-color: #A8B5A0;
+            border-color: #9CAF88;
+        }
+
+        .filter-btn.active.cisc {
+            background-color: #9BADB7;
+            border-color: #8FA8B8;
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: calc(100vh - 120px);
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.3;
+            stroke-width: 1.5px;
+            fill: none;
+        }
+
+        .link.highlighted {
+            stroke: #555;
+            stroke-opacity: 0.8;
+            stroke-width: 2.5px;
+        }
+
+        .node {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .node circle {
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+
+        .node.highlighted circle {
+            stroke: #333;
+            stroke-width: 3px;
+        }
+
+        .node.faded {
+            opacity: 0.2;
+        }
+
+        .node-label {
+            font-size: 10px;
+            fill: #333;
+            pointer-events: none;
+            text-anchor: middle;
+            dominant-baseline: central;
+            font-weight: 500;
+        }
+
+        #tooltip {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid #D0D0CC;
+            border-radius: 6px;
+            padding: 12px;
+            pointer-events: none;
+            display: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            max-width: 300px;
+            z-index: 1000;
+        }
+
+        #tooltip .course-code {
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        #tooltip .course-name {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        #tooltip .course-info {
+            font-size: 11px;
+            color: #888;
+        }
+
+        #legend {
+            background-color: #FAFAF8;
+            padding: 15px 20px;
+            border-top: 1px solid #E0E0DD;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            font-size: 13px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .legend-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        #controls {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .arrow-marker {
+            fill: #999;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Queen's Course Prerequisites</h1>
+        <input type="text" id="searchBox" placeholder="Search courses...">
+        <button class="filter-btn" data-filter="MATH">MATH</button>
+        <button class="filter-btn" data-filter="STAT">STAT</button>
+        <button class="filter-btn" data-filter="CISC">CISC</button>
+        <div id="controls">
+            <button class="filter-btn" id="resetBtn">Reset View</button>
+        </div>
+    </div>
+
+    <div id="canvas-container">
+        <svg id="graph"></svg>
+        <div id="tooltip"></div>
+    </div>
+
+    <div id="legend">
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #D4A574;"></div>
+            <span class="legend-label">Mathematics (MATH)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #A8B5A0;"></div>
+            <span class="legend-label">Statistics (STAT)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #9BADB7;"></div>
+            <span class="legend-label">Computing (CISC)</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-label" style="margin-left: 20px;">Node size = Credit units</span>
+        </div>
+    </div>
+
+    <script>
+        // Load graph data
+        const graphDataUrl = 'graph.json';
+        
+        // Color scheme (Morandi warm colors)
+        const colorScheme = {
+            'MATH': '#D4A574',
+            'STAT': '#A8B5A0',
+            'CISC': '#9BADB7'
+        };
+
+        // Initialize SVG and containers
+        const svg = d3.select('#graph');
+        const container = svg.append('g');
+        
+        // Add zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 4])
+            .on('zoom', (event) => {
+                container.attr('transform', event.transform);
+            });
+        
+        svg.call(zoom);
+
+        // Define arrow markers
+        svg.append('defs').selectAll('marker')
+            .data(['arrow'])
+            .join('marker')
+            .attr('id', 'arrow')
+            .attr('viewBox', '0 -5 10 10')
+            .attr('refX', 20)
+            .attr('refY', 0)
+            .attr('markerWidth', 6)
+            .attr('markerHeight', 6)
+            .attr('orient', 'auto')
+            .append('path')
+            .attr('d', 'M0,-5L10,0L0,5')
+            .attr('class', 'arrow-marker');
+
+        let graphData, simulation, link, node, label;
+        let selectedNodes = new Set();
+        let activeFilter = null;
+
+        // Load and visualize data
+        d3.json(graphDataUrl).then(data => {
+            graphData = data;
+            initializeGraph();
+        });
+
+        function initializeGraph() {
+            const width = document.getElementById('canvas-container').clientWidth;
+            const height = document.getElementById('canvas-container').clientHeight;
+
+            // Create simulation with physics forces
+            simulation = d3.forceSimulation(graphData.nodes)
+                .force('link', d3.forceLink(graphData.edges)
+                    .id(d => d.id)
+                    .distance(120)  // Rest length (Hooke's Law)
+                    .strength(0.5))  // Spring constant
+                .force('charge', d3.forceManyBody()
+                    .strength(-500))  // Coulomb repulsion
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide()
+                    .radius(d => getNodeSize(d) + 5))
+                .alphaDecay(0.02);  // Damping
+
+            // Create links
+            link = container.append('g')
+                .selectAll('path')
+                .data(graphData.edges)
+                .join('path')
+                .attr('class', 'link')
+                .attr('marker-end', 'url(#arrow)');
+
+            // Create nodes
+            node = container.append('g')
+                .selectAll('g')
+                .data(graphData.nodes)
+                .join('g')
+                .attr('class', 'node')
+                .call(drag(simulation));
+
+            node.append('circle')
+                .attr('r', d => getNodeSize(d))
+                .attr('fill', d => colorScheme[d.subject] || '#C4B5A0')
+                .attr('opacity', d => graphData.components.isolated.includes(d.id) ? 0.7 : 1);
+
+            // Add labels (show code for all nodes)
+            label = container.append('g')
+                .selectAll('text')
+                .data(graphData.nodes)
+                .join('text')
+                .attr('class', 'node-label')
+                .text(d => d.code.replace(/[A-Z]+\s/, ''))  // Show just the number
+                .attr('dy', 0.5);
+
+            // Event handlers
+            node.on('mouseover', handleMouseOver)
+                .on('mouseout', handleMouseOut)
+                .on('click', handleClick);
+
+            // Update positions on simulation tick
+            simulation.on('tick', () => {
+                link.attr('d', linkArc);
+                
+                node.attr('transform', d => `translate(${d.x},${d.y})`);
+                label.attr('transform', d => `translate(${d.x},${d.y})`);
+            });
+        }
+
+        function getNodeSize(d) {
+            // Size based on credit units: 3.0 units = radius 8, 6.0 units = radius 12
+            return 6 + (d.units * 1.5);
+        }
+
+        function linkArc(d) {
+            const dx = d.target.x - d.source.x;
+            const dy = d.target.y - d.source.y;
+            const dr = Math.sqrt(dx * dx + dy * dy);
+            return `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`;
+        }
+
+        function handleMouseOver(event, d) {
+            const tooltip = document.getElementById('tooltip');
+            const prereqText = d.prerequisites.length > 0 
+                ? d.prerequisites.join(', ') 
+                : 'None';
+            
+            tooltip.innerHTML = `
+                <div class="course-code">${d.code}</div>
+                <div class="course-name">${d.fullName}</div>
+                <div class="course-info">
+                    <strong>Credits:</strong> ${d.units} units<br>
+                    <strong>Prerequisites:</strong> ${prereqText}<br>
+                    <strong>Follow-up courses:</strong> ${d.followupCount}
+                </div>
+            `;
+            
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.pageX + 10) + 'px';
+            tooltip.style.top = (event.pageY + 10) + 'px';
+
+            // Highlight connected nodes
+            highlightConnections(d);
+        }
+
+        function handleMouseOut() {
+            document.getElementById('tooltip').style.display = 'none';
+            clearHighlight();
+        }
+
+        function handleClick(event, d) {
+            event.stopPropagation();
+            if (selectedNodes.has(d.id)) {
+                selectedNodes.delete(d.id);
+            } else {
+                selectedNodes.add(d.id);
+            }
+            updateSelection();
+        }
+
+        function highlightConnections(d) {
+            const connected = new Set([d.id]);
+            
+            // Find all connected nodes
+            graphData.edges.forEach(edge => {
+                if (edge.source.id === d.id) connected.add(edge.target.id);
+                if (edge.target.id === d.id) connected.add(edge.source.id);
+            });
+
+            // Fade non-connected nodes
+            node.classed('faded', n => !connected.has(n.id));
+            node.classed('highlighted', n => n.id === d.id);
+            
+            // Highlight connected links
+            link.classed('highlighted', l => 
+                l.source.id === d.id || l.target.id === d.id
+            );
+        }
+
+        function clearHighlight() {
+            node.classed('faded', false);
+            node.classed('highlighted', false);
+            link.classed('highlighted', false);
+        }
+
+        function updateSelection() {
+            // This would be for persistent selection - simplified for now
+            clearHighlight();
+        }
+
+        function drag(simulation) {
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+
+            return d3.drag()
+                .on('start', dragstarted)
+                .on('drag', dragged)
+                .on('end', dragended);
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                if (activeFilter === filter) {
+                    // Toggle off
+                    activeFilter = null;
+                    btn.classList.remove('active', filter.toLowerCase());
+                    node.style('opacity', 1);
+                    link.style('opacity', 0.3);
+                } else {
+                    // Toggle on
+                    document.querySelectorAll('.filter-btn[data-filter]').forEach(b => {
+                        b.classList.remove('active', 'math', 'stat', 'cisc');
+                    });
+                    activeFilter = filter;
+                    btn.classList.add('active', filter.toLowerCase());
+                    
+                    // Filter nodes
+                    node.style('opacity', d => d.subject === filter ? 1 : 0.15);
+                    link.style('opacity', l => 
+                        l.source.subject === filter || l.target.subject === filter ? 0.3 : 0.05
+                    );
+                }
+            });
+        });
+
+        // Search functionality
+        const searchBox = document.getElementById('searchBox');
+        searchBox.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            
+            if (query.length === 0) {
+                node.style('opacity', 1);
+                link.style('opacity', 0.3);
+                return;
+            }
+
+            node.style('opacity', d => {
+                const match = d.code.toLowerCase().includes(query) || 
+                              d.fullName.toLowerCase().includes(query);
+                return match ? 1 : 0.15;
+            });
+
+            link.style('opacity', l => {
+                const sourceMatch = l.source.code.toLowerCase().includes(query) || 
+                                   l.source.fullName.toLowerCase().includes(query);
+                const targetMatch = l.target.code.toLowerCase().includes(query) || 
+                                   l.target.fullName.toLowerCase().includes(query);
+                return (sourceMatch || targetMatch) ? 0.3 : 0.05;
+            });
+        });
+
+        // Reset button
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            // Reset filters
+            activeFilter = null;
+            document.querySelectorAll('.filter-btn[data-filter]').forEach(b => {
+                b.classList.remove('active', 'math', 'stat', 'cisc');
+            });
+            searchBox.value = '';
+            
+            // Reset opacities
+            node.style('opacity', 1);
+            link.style('opacity', 0.3);
+            
+            // Reset zoom
+            svg.transition()
+                .duration(750)
+                .call(zoom.transform, d3.zoomIdentity);
+            
+            // Restart simulation
+            simulation.alpha(1).restart();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const width = document.getElementById('canvas-container').clientWidth;
+            const height = document.getElementById('canvas-container').clientHeight;
+            simulation.force('center', d3.forceCenter(width / 2, height / 2));
+            simulation.alpha(0.3).restart();
+        });
+    </script>
+</body>
+</html>
