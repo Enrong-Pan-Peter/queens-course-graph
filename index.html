@@ -76,9 +76,10 @@
         }
 
         #canvas-container {
-            width: 100vw;
+            width: calc(100vw - 300px);
             height: calc(100vh - 120px);
             position: relative;
+            float: left;
         }
 
         svg {
@@ -91,31 +92,44 @@
             stroke-opacity: 0.3;
             stroke-width: 1.5px;
             fill: none;
+            transition: all 0.3s;
         }
 
         .link.highlighted {
-            stroke: #555;
-            stroke-opacity: 0.8;
-            stroke-width: 2.5px;
+            stroke: #FF6B6B;
+            stroke-opacity: 1;
+            stroke-width: 3px;
+        }
+
+        .link.faded {
+            stroke-opacity: 0.05;
         }
 
         .node {
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
 
         .node circle {
             stroke: #fff;
             stroke-width: 2px;
+            transition: all 0.3s;
+        }
+
+        .node.selected circle {
+            stroke: #FF6B6B;
+            stroke-width: 4px;
+            filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.6));
         }
 
         .node.highlighted circle {
-            stroke: #333;
+            stroke: #FFA500;
             stroke-width: 3px;
+            filter: drop-shadow(0 0 6px rgba(255, 165, 0, 0.4));
         }
 
         .node.faded {
-            opacity: 0.2;
+            opacity: 0.15;
         }
 
         .node-label {
@@ -158,6 +172,90 @@
             color: #888;
         }
 
+        #sidebar {
+            width: 300px;
+            height: calc(100vh - 120px);
+            background-color: #FAFAF8;
+            border-left: 1px solid #E0E0DD;
+            float: right;
+            overflow-y: auto;
+            padding: 20px;
+            display: none;
+        }
+
+        #sidebar.active {
+            display: block;
+        }
+
+        #sidebar h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        #sidebar .course-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #E0E0DD;
+        }
+
+        #sidebar h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #sidebar li {
+            padding: 8px 0;
+            font-size: 13px;
+            color: #666;
+            border-bottom: 1px solid #F0F0EE;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        #sidebar li:hover {
+            color: #333;
+            padding-left: 8px;
+            background-color: #F5F5F3;
+        }
+
+        #sidebar .empty-state {
+            font-size: 13px;
+            color: #999;
+            font-style: italic;
+        }
+
+        #sidebar .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        #sidebar .close-btn:hover {
+            color: #333;
+        }
+
         #legend {
             background-color: #FAFAF8;
             padding: 15px 20px;
@@ -167,6 +265,7 @@
             gap: 30px;
             font-size: 13px;
             flex-wrap: wrap;
+            clear: both;
         }
 
         .legend-item {
@@ -214,6 +313,20 @@
     <div id="canvas-container">
         <svg id="graph"></svg>
         <div id="tooltip"></div>
+    </div>
+
+    <div id="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <h2 id="sidebar-course-code"></h2>
+        <div class="course-title" id="sidebar-course-name"></div>
+        
+        <div id="sidebar-info"></div>
+        
+        <h3>Prerequisites:</h3>
+        <ul id="sidebar-prerequisites"></ul>
+        
+        <h3>Follow-up Courses:</h3>
+        <ul id="sidebar-followups"></ul>
     </div>
 
     <div id="legend">
@@ -287,18 +400,20 @@
             const width = document.getElementById('canvas-container').clientWidth;
             const height = document.getElementById('canvas-container').clientHeight;
 
-            // Create simulation with physics forces
+            // Create simulation with physics forces - TIGHTER SPACING
             simulation = d3.forceSimulation(graphData.nodes)
                 .force('link', d3.forceLink(graphData.edges)
                     .id(d => d.id)
-                    .distance(120)  // Rest length (Hooke's Law)
-                    .strength(0.5))  // Spring constant
+                    .distance(60)  // Reduced from 120 to 60
+                    .strength(0.8))  // Increased from 0.5 to 0.8
                 .force('charge', d3.forceManyBody()
-                    .strength(-500))  // Coulomb repulsion
+                    .strength(-200))  // Reduced from -500 to -200
                 .force('center', d3.forceCenter(width / 2, height / 2))
                 .force('collision', d3.forceCollide()
-                    .radius(d => getNodeSize(d) + 5))
-                .alphaDecay(0.02);  // Damping
+                    .radius(d => getNodeSize(d) + 3))  // Reduced from 5 to 3
+                .force('x', d3.forceX(width / 2).strength(0.05))  // Add gentle centering
+                .force('y', d3.forceY(height / 2).strength(0.05))
+                .alphaDecay(0.01);  // Slower decay for better settling
 
             // Create links
             link = container.append('g')
@@ -385,44 +500,160 @@
             clearHighlight();
         }
 
+        let selectedNode = null;
+
         function handleClick(event, d) {
             event.stopPropagation();
-            if (selectedNodes.has(d.id)) {
-                selectedNodes.delete(d.id);
-            } else {
-                selectedNodes.add(d.id);
+            
+            // If clicking the same node, deselect
+            if (selectedNode && selectedNode.id === d.id) {
+                deselectNode();
+                return;
             }
-            updateSelection();
+            
+            // Select new node
+            selectedNode = d;
+            showSidebar(d);
+            highlightNode(d);
         }
 
-        function highlightConnections(d) {
-            const connected = new Set([d.id]);
+        function showSidebar(d) {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.add('active');
             
-            // Find all connected nodes
+            // Set course info
+            document.getElementById('sidebar-course-code').textContent = d.code;
+            document.getElementById('sidebar-course-name').textContent = d.fullName;
+            
+            // Set additional info
+            document.getElementById('sidebar-info').innerHTML = `
+                <p style="font-size: 13px; color: #888; margin-bottom: 12px;">
+                    <strong>Credits:</strong> ${d.units} units<br>
+                    <strong>Level:</strong> ${d.level}<br>
+                    <strong>Subject:</strong> ${d.subject}
+                </p>
+            `;
+            
+            // Set prerequisites
+            const prereqList = document.getElementById('sidebar-prerequisites');
+            prereqList.innerHTML = '';
+            if (d.prerequisites && d.prerequisites.length > 0) {
+                d.prerequisites.forEach(prereq => {
+                    const li = document.createElement('li');
+                    li.textContent = prereq;
+                    li.onclick = () => {
+                        const prereqNode = graphData.nodes.find(n => n.code === prereq);
+                        if (prereqNode) {
+                            handleClick(event, prereqNode);
+                        }
+                    };
+                    prereqList.appendChild(li);
+                });
+            } else {
+                prereqList.innerHTML = '<li class="empty-state">None</li>';
+            }
+            
+            // Set follow-ups
+            const followupList = document.getElementById('sidebar-followups');
+            followupList.innerHTML = '';
+            const followups = graphData.edges
+                .filter(e => e.source.id === d.id || e.source === d.id)
+                .map(e => e.target.code || graphData.nodes.find(n => n.id === e.target).code);
+            
+            if (followups.length > 0) {
+                followups.forEach(followup => {
+                    const li = document.createElement('li');
+                    li.textContent = followup;
+                    li.onclick = () => {
+                        const followupNode = graphData.nodes.find(n => n.code === followup);
+                        if (followupNode) {
+                            handleClick(event, followupNode);
+                        }
+                    };
+                    followupList.appendChild(li);
+                });
+            } else {
+                followupList.innerHTML = '<li class="empty-state">None</li>';
+            }
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('active');
+            deselectNode();
+        }
+
+        function highlightNode(d) {
+            // Get connected nodes
+            const connected = new Set([d.id]);
+            const directConnections = new Set([d.id]);
+            
+            // Add prerequisites (incoming edges)
             graphData.edges.forEach(edge => {
-                if (edge.source.id === d.id) connected.add(edge.target.id);
-                if (edge.target.id === d.id) connected.add(edge.source.id);
+                if (edge.target.id === d.id || edge.target === d.id) {
+                    const sourceId = edge.source.id || edge.source;
+                    connected.add(sourceId);
+                    directConnections.add(sourceId);
+                }
+                // Add follow-ups (outgoing edges)
+                if (edge.source.id === d.id || edge.source === d.id) {
+                    const targetId = edge.target.id || edge.target;
+                    connected.add(targetId);
+                    directConnections.add(targetId);
+                }
             });
 
-            // Fade non-connected nodes
-            node.classed('faded', n => !connected.has(n.id));
-            node.classed('highlighted', n => n.id === d.id);
+            // Update nodes
+            node.classed('faded', n => !connected.has(n.id))
+                .classed('highlighted', n => directConnections.has(n.id) && n.id !== d.id)
+                .classed('selected', n => n.id === d.id);
             
-            // Highlight connected links
-            link.classed('highlighted', l => 
-                l.source.id === d.id || l.target.id === d.id
-            );
+            // Update links
+            link.classed('highlighted', l => {
+                const sourceId = l.source.id || l.source;
+                const targetId = l.target.id || l.target;
+                return (sourceId === d.id || targetId === d.id);
+            }).classed('faded', l => {
+                const sourceId = l.source.id || l.source;
+                const targetId = l.target.id || l.target;
+                return !(sourceId === d.id || targetId === d.id);
+            });
         }
 
-        function clearHighlight() {
-            node.classed('faded', false);
-            node.classed('highlighted', false);
-            link.classed('highlighted', false);
+        function deselectNode() {
+            selectedNode = null;
+            node.classed('faded', false)
+                .classed('highlighted', false)
+                .classed('selected', false);
+            link.classed('highlighted', false)
+                .classed('faded', false);
         }
 
-        function updateSelection() {
-            // This would be for persistent selection - simplified for now
-            clearHighlight();
+        function handleMouseOver(event, d) {
+            if (selectedNode) return; // Don't show tooltip if node is selected
+            
+            const tooltip = document.getElementById('tooltip');
+            const prereqText = d.prerequisites.length > 0 
+                ? d.prerequisites.join(', ') 
+                : 'None';
+            
+            tooltip.innerHTML = `
+                <div class="course-code">${d.code}</div>
+                <div class="course-name">${d.fullName}</div>
+                <div class="course-info">
+                    <strong>Credits:</strong> ${d.units} units<br>
+                    <strong>Prerequisites:</strong> ${prereqText}<br>
+                    <strong>Follow-up courses:</strong> ${d.followupCount}
+                </div>
+            `;
+            
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.pageX + 10) + 'px';
+            tooltip.style.top = (event.pageY + 10) + 'px';
+        }
+
+        function handleMouseOut() {
+            if (selectedNode) return;
+            document.getElementById('tooltip').style.display = 'none';
         }
 
         function drag(simulation) {
@@ -512,6 +743,9 @@
             });
             searchBox.value = '';
             
+            // Close sidebar and clear selection
+            closeSidebar();
+            
             // Reset opacities
             node.style('opacity', 1);
             link.style('opacity', 0.3);
@@ -523,6 +757,13 @@
             
             // Restart simulation
             simulation.alpha(1).restart();
+        });
+
+        // Click on background to deselect
+        svg.on('click', function(event) {
+            if (event.target === this || event.target.tagName === 'svg') {
+                closeSidebar();
+            }
         });
 
         // Handle window resize
